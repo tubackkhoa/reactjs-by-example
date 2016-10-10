@@ -1,5 +1,6 @@
 require("jquery");
-import React from 'react/addons';
+import React from 'react';
+import ReactDom from 'react-dom';
 import SearchPage from './SearchPage'
 import config from '../../../config/app';
 

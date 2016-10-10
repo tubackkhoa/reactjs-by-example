@@ -1,6 +1,6 @@
 jest.dontMock('../AppRoot');
 
-import React from 'react/addons';
+import React from 'react-addons';
 import AppRoot from '../AppRoot';
 import Cart from '../Cart';
 

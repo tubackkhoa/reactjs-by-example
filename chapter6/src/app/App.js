@@ -4,7 +4,8 @@ require("bootstrap-webpack");
 require("font-awesome-webpack");
 require('btoa');
 import React from 'react';
-import "babel-core/polyfill";
+import ReactDom from 'react-dom';
+import "babel-polyfill";
 
 
 var SearchPage = React.createClass({
@@ -79,10 +80,25 @@ var SearchPage = React.createClass({
   },
 
 
-  performSearch(){
-    let searchTerm = $(this.refs.searchInput.getDOMNode()).val();
+  performSearch(){      
+    let searchTerm = $(this.refs.searchInput).val();
     this.openLibrarySearch(searchTerm);
     this.setState({searchCompleted: false, searching: true});
+  },
+
+  checkStatus(response) {
+    if (response.status >= 200 && response.status < 300) {
+      return response;
+    } else {
+      var error = new Error(response.statusText);
+      error.response = response;
+      throw error;
+    }
+  },
+
+  handleError(ex){
+    console.log('Parsing failed', ex)
+    this.setState({searchCompleted: true, searching: false});
   },
 
   parseJSON(response) {
@@ -98,14 +114,13 @@ var SearchPage = React.createClass({
   },
 
   openLibrarySearch(searchTerm){
-    let openlibraryURI = `https://openlibrary.org/search.json?page=1&q=${searchTerm}}`;
+    // evaluate this string expression
+    let openlibraryURI = `https://openlibrary.org/search.json?page=1&q=${searchTerm}`;    
     fetch(openlibraryURI)
+      .then(this.checkStatus)
       .then(this.parseJSON)
       .then(this.updateState)
-      .catch(function (ex) {
-        console.log('Parsing failed', ex)
-      })
-
+      .catch(this.handleError);
   }
 
 });

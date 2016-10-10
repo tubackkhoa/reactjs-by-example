@@ -1,6 +1,6 @@
 jest.dontMock('../Cart');
 
-import React from 'react/addons';
+import React from 'react-addons';
 import Cart from '../Cart';
 import Item from '../Item';
 

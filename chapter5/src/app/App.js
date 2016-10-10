@@ -1,6 +1,7 @@
 require("jquery");
 require("bootstrap");
 require("bootstrap-webpack");
+
 import React from 'react';
 import BookList from './booklist';
 import ShippingDetails from './shipping_details';

@@ -1,5 +1,6 @@
-import React from 'react/addons';
-
+// import React from 'react-addons';
+import React from 'react';
+import ReactDom from 'react-dom';
 import AppRoot from './components/AppRoot';
 
 
@@ -18,12 +19,12 @@ class App {
 
     // render to DOM
     if (element) {
-      React.render(appRootElement, element);
+      ReactDom.render(appRootElement, element);
       return;
     }
 
     // render to string
-    return React.renderToString(appRootElement);
+    return ReactDom.renderToString(appRootElement);
   }
 
   renderToDOM(element) {
