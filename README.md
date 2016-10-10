@@ -5,7 +5,7 @@ Examples for "ReactJS by Example"
 
 ### Usage
 
-See individual directories for usage</br>  
+See individual directories for usage  
 
 Run a folder sample (in dev mode): **npm run chapter2**  
 
