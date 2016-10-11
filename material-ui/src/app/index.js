@@ -1,13 +1,38 @@
-import React from 'react';
-// import direct function
-import {render} from 'react-dom';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import App from './App'; // Our custom react component
+import React from 'react'
+import { render } from 'react-dom'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { useBasename } from 'history'
+
+// all pages
+import App from './pages/App'
+import Home from './pages/Home'
+import Index from './pages/Index'
+import Users from './pages/Users'
+import UsersIndex from './pages/UsersIndex'
+import User from './pages/User'
+import About from './pages/About'
 
 // Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
+import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin();
 
-// Render the main app react component into the app div.
-// For more details see: https://facebook.github.io/react/docs/top-level-api.html#react.render
-render(<App />, document.getElementById('app'));
+/* Comment out these lines to support router via hash */
+// import {useRouterHistory} from 'react-router'
+// import {createHashHistory} from 'history'
+// const appHistory = useRouterHistory(createHashHistory)({ queryKey: false })
+
+const appHistory = useBasename(() => browserHistory)({ queryKey: false })
+
+render((
+  <Router history={appHistory}>
+    <Route path="/" component={Home}>
+      <IndexRoute component={Index}/>
+      <Route path="/about" component={About}/>
+      <Route path="/app" component={App}/>
+      <Route path="/users" component={Users}>     
+        <IndexRoute component={UsersIndex}/>   
+        <Route path=":id" component={User}/>
+      </Route>
+    </Route>
+  </Router>
+), document.getElementById('app'))

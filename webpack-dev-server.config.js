@@ -20,6 +20,7 @@ const config = {
   devServer: {
     contentBase: BASENAME + '/src/www', // Relative directory for base of server
     devtool: 'eval',
+    historyApiFallback: true,
     hot: true, // Live-reload
     inline: true,
     port: 3000, // Port Number

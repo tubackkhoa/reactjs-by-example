@@ -7,7 +7,8 @@
     "url": "https://github.com/tubackkhoa/reactjs-by-example.git"
   },
   "scripts": {
-    "test6-iso": "jest",
+    "browser:development": "webpack-dev-server --config meterial-ui/docs/webpack-dev-server.config.js --progress --colors --inline",
+    "test": "jest",
     "chapter2": "APP_BASENAME='chapter2' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "chapter4": "APP_BASENAME='chapter4' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "chapter5": "APP_BASENAME='chapter5' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
@@ -25,7 +26,8 @@
     "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
-    "babel-preset-stage-2": "^6.17.0",    
+    "babel-preset-stage-2": "^6.17.0",
+    "babel-plugin-transform-replace-object-assign": "^0.2.1",
     "expose-loader": "^0.7.1",
     "html-webpack-plugin": "^2.7.2",
     "react-hot-loader": "^1.3.0",
@@ -43,44 +45,48 @@
     "react-addons-perf": "^15.3.0",
     "react-addons-css-transition-group": "^15.3.0",
     "react-addons-pure-render-mixin": "^15.3.0",
-    "react-addons-test-utils": "^15.3.0"    
+    "react-addons-test-utils": "^15.3.0"
   },
   "dependencies": {
-    "jquery": "^3.1.1",
     "bootstrap": "^3.3.5",
     "bootstrap-webpack": "0.0.3",
+    "bower-webpack-plugin": "^0.1.8",
+    "btoa": "^1.1.2",
+    "css-loader": "^0.15.5",
+    "debug": "^2.2.0",
+    "ejs": "^2.3.3",
+    "eslint-plugin-react": "^2.3.0",
+    "express": "^4.12.3",
     "file-loader": "^0.8.4",
+    "font-awesome": "^4.3.0",
+    "font-awesome-webpack": "0.0.3",
+    "history": "^4.3.0",
+    "jquery": "^3.1.1",
     "material-ui": "^0.15.0",
     "object-assign": "^4.0.1",
     "react": "^15.0.1",
     "react-dom": "^15.2.1",
+    "react-router": "^2.8.1",
     "react-tap-event-plugin": "^1.0.0",
+    "style-loader": "^0.12.3",
     "typescript": "^2.0.3",
     "url-loader": "^0.5.6",
-    "font-awesome": "^4.3.0",
-    "font-awesome-webpack": "0.0.3",
-    "whatwg-fetch": "^0.9.0",
-    "express": "^4.12.3",
-    "eslint-plugin-react": "^2.3.0",
-    "debug": "^2.2.0",
-    "ejs": "^2.3.3",
-    "btoa":"^1.1.2",
-    "bower-webpack-plugin": "^0.1.8",
-    "css-loader": "^0.15.5",
-    "style-loader": "^0.12.3"    
+    "whatwg-fetch": "^0.9.0"
   },
   "jest": {
     "verbose": true,
     "automock": true,
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
-    "scriptPreprocessor_chapter6": "./chapter6-iso/tools/preprocessor.js",    
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",    
     "unmockedModulePathPatterns": [
       "react"
-    ],        
-    "moduleFileExtensions": ["js", "jsx", "json"],
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json"
+    ],
     "testPathDirs": [
-      "./chapter6-iso/src/app",
-      "./chapter6-iso/src/www"      
+      "./material-ui/src/app/pages"     
     ]
   }
 }
