@@ -17,8 +17,9 @@ Modify "scripts" field in **package.json** for custom running
 ### Dependencies  
 
 Use **npm show {pkg} version** to add the latest version  
-
+```
 **npm install jquery**  
 **npm install --save-dev babel-preset-stage-2**  
 **npm install btoa**  
+```
 
