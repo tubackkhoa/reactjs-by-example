@@ -57,6 +57,6 @@ replace all occurrences of `Search` with `Pump`.
 - Content compression via [Rack::Deflater](https://github.com/rack/rack/blob/master/lib/rack/deflater.rb).
 
 
-#### Brought to you by
+#### Contact us
 
-[![BigBinary logo](http://bigbinary.com/assets/common/logo.png)](http://BigBinary.com)
+[![Agiletech logo](http://agiletech.vn/wp-content/uploads/2013/09/thanh-tu-pham_1-350x350.jpg)](http://agiletech.vn/)
