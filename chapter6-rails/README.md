@@ -8,9 +8,11 @@ bundle exec rails server
 ```
 
 #### In Mac OSX
+```
 gem uninstall nokogiri  
 brew install libxml2 libxslt libiconv  
 NOKOGIRI_USE_SYSTEM_LIBRARIES=1 gem install nokogiri -v '1.6.6.2' -- --use-system-libraries --with-iconv-dir="$(brew --prefix libiconv)" --with-xml2-config="$(brew --prefix libxml2)/bin/xml2-config" --with-xslt-config="$(brew --prefix libxslt)/bin/xslt-config"  
+```
 
 ** you may need to re-init the database directory ** 
 rm -rf /usr/local/var/postgres && initdb /usr/local/var/postgres -E utf8  
