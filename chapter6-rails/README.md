@@ -7,6 +7,14 @@ rake setup
 bundle exec rails server
 ```
 
+#### In Mac OSX
+gem uninstall nokogiri  
+brew install libxml2 libxslt libiconv  
+NOKOGIRI_USE_SYSTEM_LIBRARIES=1 gem install nokogiri -v '1.6.6.2' -- --use-system-libraries --with-iconv-dir="$(brew --prefix libiconv)" --with-xml2-config="$(brew --prefix libxml2)/bin/xml2-config" --with-xslt-config="$(brew --prefix libxslt)/bin/xslt-config"  
+
+** you may need to re-init the database directory ** 
+rm -rf /usr/local/var/postgres && initdb /usr/local/var/postgres -E utf8  
+
 #### Replace Search with your project name
 
 Let's say that the project name is `Pump`. Execute the command below to
@@ -32,7 +40,7 @@ replace all occurrences of `Search` with `Pump`.
 - Uses haml for cleaner syntax over erb.
 - No coffeescript. We prefer JavaScript.
 - No turbo-link.
-- Uses [ActiveAdmin](http://activeadmin.info).
+- Uses [ActiveAdmin](http://activeadmin.info) : (admin@example.com|password).
 - When exception is sent to honeybadger then uuid is also sent for [debugging](http://videos.bigbinary.com/rubyonrails/use-uuid-x-request-id-to-debug-rails-application.html) .
 - Uses [DelayedJob](https://github.com/collectiveidea/delayed_job).
 - Intercepts all outgoing emails in non production environment using gem [mail_interceptor](https://github.com/bigbinary/mail_interceptor).

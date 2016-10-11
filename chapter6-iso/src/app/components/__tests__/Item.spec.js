@@ -1,9 +1,12 @@
-jest.dontMock('../Item');
+// calls to unmock will automatically be hoisted to the top of the code block
+// jest.enableAutomock();
+// jest.unmock('../Item');
 
-import React from 'react-addons';
+// import React from 'react-addons';
+import React from 'react';
 import Item from '../Item';
-
-var TestUtils = React.addons.TestUtils;
+import TestUtils from 'react-addons-test-utils';
+// var TestUtils = React.addons.TestUtils;
 var itemProp = {
   title: 'Item 1',
   price: 12
@@ -18,6 +21,6 @@ describe('Item', () => {
 
     var li = TestUtils.findRenderedDOMComponentWithTag(item, 'li');
 
-    expect(li.getDOMNode().textContent).toEqual('Item 1 - $12');
+    expect(li.textContent).toEqual('Item 1 - $12');
   });
 });

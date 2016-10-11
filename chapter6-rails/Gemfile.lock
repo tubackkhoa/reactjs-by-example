@@ -175,7 +175,7 @@ GEM
     html2haml (2.0.0)
       erubis (~> 2.7.0)
       haml (~> 4.0.0)
-      nokogiri (~> 1.6.0)
+      nokogiri (~> 1.6.8)
       ruby_parser (~> 3.5)
     i18n (0.7.0)
     inherited_resources (1.6.0)

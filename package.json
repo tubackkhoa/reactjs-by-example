@@ -32,7 +32,18 @@
     "transfer-webpack-plugin": "^0.1.4",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
-    "jest-cli": "^0.4.0"    
+    "jest-cli": "^16.0.1",
+    "babel-jest": "^16.0.0",
+    "react-test-renderer": "^15.3.2",
+    "react-addons": "^0.9.1-deprecated",
+    "react-addons-transition-group": "^15.3.0",
+    "react-addons-linked-state-mixin": "^15.3.0",
+    "react-addons-create-fragment": "^15.3.0",
+    "react-addons-update": "^15.3.0",
+    "react-addons-perf": "^15.3.0",
+    "react-addons-css-transition-group": "^15.3.0",
+    "react-addons-pure-render-mixin": "^15.3.0",
+    "react-addons-test-utils": "^15.3.0"    
   },
   "dependencies": {
     "jquery": "^3.1.1",
@@ -56,25 +67,20 @@
     "btoa":"^1.1.2",
     "bower-webpack-plugin": "^0.1.8",
     "css-loader": "^0.15.5",
-    "style-loader": "^0.12.3",
-    "react-addons": "^0.9.1",
-    "react-addons-transition-group": "^15.3.0",
-    "react-addons-linked-state-mixin": "^15.3.0",
-    "react-addons-create-fragment": "^15.3.0",
-    "react-addons-update": "^15.3.0",
-    "react-addons-perf": "^15.3.0",
-    "react-addons-css-transition-group": "^15.3.0",
-    "react-addons-pure-render-mixin": "^15.3.0",
-    "react-addons-test-utils": "^15.3.0"
-
+    "style-loader": "^0.12.3"    
   },
   "jest": {
-    "scriptPreprocessor": "./chapter6-iso/tools/preprocessor.js",
+    "verbose": true,
+    "automock": true,
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "scriptPreprocessor_chapter6": "./chapter6-iso/tools/preprocessor.js",    
     "unmockedModulePathPatterns": [
       "react"
-    ],
+    ],        
+    "moduleFileExtensions": ["js", "jsx", "json"],
     "testPathDirs": [
-      "./chapter6-iso/src/app"      
+      "./chapter6-iso/src/app",
+      "./chapter6-iso/src/www"      
     ]
   }
 }

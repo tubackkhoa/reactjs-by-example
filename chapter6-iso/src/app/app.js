@@ -1,6 +1,7 @@
 // import React from 'react-addons';
 import React from 'react';
 import ReactDom from 'react-dom';
+import ReactDOMServer from 'react-dom/server';
 import AppRoot from './components/AppRoot';
 
 
@@ -24,7 +25,7 @@ class App {
     }
 
     // render to string
-    return ReactDom.renderToString(appRootElement);
+    return ReactDOMServer.renderToString(appRootElement);
   }
 
   renderToDOM(element) {

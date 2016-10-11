@@ -1,0 +1,555 @@
+** [Honeybadger] Unable to start Honeybadger -- api_key is missing or invalid. level=2 pid=99130
+** [Honeybadger] Unable to start Honeybadger -- api_key is missing or invalid. level=2 pid=433
+** [Honeybadger] Unable to start Honeybadger -- api_key is missing or invalid. level=2 pid=548
+  [1m[36m (0.2ms)[0m  [1mDROP DATABASE IF EXISTS "reactjs-by-example_development" /*application:Search*/[0m
+  [1m[35m (0.2ms)[0m  DROP DATABASE IF EXISTS "reactjs-by-example_test" /*application:Search*/
+  [1m[36m (407.3ms)[0m  [1mCREATE DATABASE "reactjs-by-example_development" ENCODING = 'utf8' /*application:Search*/[0m
+  [1m[35m (405.7ms)[0m  CREATE DATABASE "reactjs-by-example_test" ENCODING = 'utf8' /*application:Search*/
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL)  /*application:Search*/[0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version") /*application:Search*/
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations" /*application:Search*/[0m
+Migrating to AddDeviseToUsers (20131112184628)
+  [1m[35m (0.2ms)[0m  BEGIN /*application:Search*/
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /Users/thanhtu/MyProjects/JavaScript/reactjs/reactjs-by-example/chapter6-rails/db/migrate/20131112184628_add_devise_to_users.rb:22)
+  [1m[36m (14.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp)  /*application:Search*/[0m
+  [1m[35m (6.5ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email") /*application:Search*/
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token") /*application:Search*/[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1) /*application:Search*/  [["version", "20131112184628"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT /*application:Search*/[0m
+Migrating to CreateDelayedJobs (20131120170220)
+  [1m[35m (5.9ms)[0m  BEGIN /*application:Search*/
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /Users/thanhtu/MyProjects/JavaScript/reactjs/reactjs-by-example/chapter6-rails/db/migrate/20131120170220_create_delayed_jobs.rb:13)
+  [1m[36m (7.7ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying, "queue" character varying, "created_at" timestamp, "updated_at" timestamp)  /*application:Search*/[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "delayed_jobs_priority" ON "delayed_jobs"  ("priority", "run_at") /*application:Search*/
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1) /*application:Search*/[0m  [["version", "20131120170220"]]
+  [1m[35m (0.4ms)[0m  COMMIT /*application:Search*/
+Migrating to AddUserAttributes (20131122045009)
+  [1m[36m (0.2ms)[0m  [1mBEGIN /*application:Search*/[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "last_name" character varying /*application:Search*/
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "first_name" character varying /*application:Search*/[0m
+  [1m[35m (5.3ms)[0m  ALTER TABLE "users" ADD "role" character varying DEFAULT 'standard' /*application:Search*/
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1) /*application:Search*/[0m  [["version", "20131122045009"]]
+  [1m[35m (1.1ms)[0m  COMMIT /*application:Search*/
+Migrating to CreateActiveAdminComments (20131213184726)
+  [1m[36m (0.3ms)[0m  [1mBEGIN /*application:Search*/[0m
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /Users/thanhtu/MyProjects/JavaScript/reactjs/reactjs-by-example/chapter6-rails/db/migrate/20131213184726_create_active_admin_comments.rb:9)
+  [1m[35m (3.2ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "namespace" character varying, "body" text, "resource_id" character varying NOT NULL, "resource_type" character varying NOT NULL, "author_id" integer, "author_type" character varying, "created_at" timestamp, "updated_at" timestamp)  /*application:Search*/
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_active_admin_comments_on_namespace" ON "active_admin_comments"  ("namespace") /*application:Search*/[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments"  ("author_type", "author_id") /*application:Search*/
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments"  ("resource_type", "resource_id") /*application:Search*/[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1) /*application:Search*/  [["version", "20131213184726"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT /*application:Search*/[0m
+Migrating to AddAuthenticationTokenToUsers (20140220111712)
+  [1m[35m (0.3ms)[0m  BEGIN /*application:Search*/
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "authentication_token" character varying /*application:Search*/[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1) /*application:Search*/  [["version", "20140220111712"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT /*application:Search*/[0m
+Migrating to AddProfileImageToUsers (20140225143027)
+  [1m[35m (0.1ms)[0m  BEGIN /*application:Search*/
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "profile_image" character varying /*application:Search*/[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1) /*application:Search*/  [["version", "20140225143027"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT /*application:Search*/[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations" /*application:Search*/
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'active_admin_comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+ /*application:Search*/[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'delayed_jobs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+ /*application:Search*/
+  [1m[36m (1.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+ /*application:Search*/[0m
+** [Honeybadger] Unable to start Honeybadger -- api_key is missing or invalid. level=2 pid=587
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "delayed_jobs" /*application:Search*/[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "users" /*application:Search*/
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "active_admin_comments" /*application:Search*/[0m
+  [1m[35m (0.3ms)[0m  BEGIN /*application:Search*/
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'sam@example.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'sam@example.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'sam@example.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'sam@example.com' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."authentication_token" = $1  ORDER BY "users"."id" ASC LIMIT 1 /*application:Search*/[0m  [["authentication_token", "ZWobDVMzGnNH3NcHqTtc"]]
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "first_name", "last_name", "role", "authentication_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id" /*application:Search*/  [["email", "sam@example.com"], ["encrypted_password", "$2a$10$8VTt5Y53dXkZEYC6nXdRNOGCU80YzDiY/mQML/wJe.nLreyDaZ3YW"], ["first_name", "Sam"], ["last_name", "Smith"], ["role", "super_admin"], ["authentication_token", "ZWobDVMzGnNH3NcHqTtc"], ["created_at", "2016-10-11 05:09:28.360067"], ["updated_at", "2016-10-11 05:09:28.360067"]]
+  [1m[36m (6.5ms)[0m  [1mCOMMIT /*application:Search*/[0m
+** [Honeybadger] Unable to start Honeybadger -- api_key is missing or invalid. level=2 pid=599
+[a1dd696f-204c-4ebd-9893-e6c9987f7b22] 
+[a1dd696f-204c-4ebd-9893-e6c9987f7b22] 
+[a1dd696f-204c-4ebd-9893-e6c9987f7b22] Started GET "/" for 127.0.0.1 at 2016-10-11 12:11:06 +0700
+[a1dd696f-204c-4ebd-9893-e6c9987f7b22]   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations" /*application:Search*/[0m
+[a1dd696f-204c-4ebd-9893-e6c9987f7b22] Processing by HomeController#index as HTML
+[a1dd696f-204c-4ebd-9893-e6c9987f7b22]   Rendered home/index.html.haml within layouts/application (1113.0ms)
+[a1dd696f-204c-4ebd-9893-e6c9987f7b22]   Rendered shared/_bootstrap_flash.html.haml (1.7ms)
+[a1dd696f-204c-4ebd-9893-e6c9987f7b22] Completed 200 OK in 14147ms (Views: 14131.0ms | ActiveRecord: 0.0ms)
+[9149466f-91a0-4c73-a940-0f75503bbcdc] 
+[9149466f-91a0-4c73-a940-0f75503bbcdc] 
+[9149466f-91a0-4c73-a940-0f75503bbcdc] Started GET "/" for 127.0.0.1 at 2016-10-11 12:11:52 +0700
+[9149466f-91a0-4c73-a940-0f75503bbcdc] Processing by HomeController#index as HTML
+[9149466f-91a0-4c73-a940-0f75503bbcdc]   Rendered home/index.html.haml within layouts/application (71.7ms)
+[9149466f-91a0-4c73-a940-0f75503bbcdc]   Rendered shared/_bootstrap_flash.html.haml (0.1ms)
+[9149466f-91a0-4c73-a940-0f75503bbcdc] Completed 200 OK in 258ms (Views: 256.9ms | ActiveRecord: 0.0ms)
+** [Honeybadger] Unable to start Honeybadger -- api_key is missing or invalid. level=2 pid=681
+[ba056e04-a396-48b7-831f-dd001fafa5bd] 
+[ba056e04-a396-48b7-831f-dd001fafa5bd] 
+[ba056e04-a396-48b7-831f-dd001fafa5bd] Started GET "/active_admin" for 127.0.0.1 at 2016-10-11 12:14:25 +0700
+[943eade3-209f-48da-8dc7-5615437b1aac] 
+[943eade3-209f-48da-8dc7-5615437b1aac] 
+[943eade3-209f-48da-8dc7-5615437b1aac] Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-11 12:14:25 +0700
+[943eade3-209f-48da-8dc7-5615437b1aac] Processing by Devise::SessionsController#new as HTML
+[943eade3-209f-48da-8dc7-5615437b1aac]   Rendered users/shared/_links.haml (3.1ms)
+[943eade3-209f-48da-8dc7-5615437b1aac]   Rendered users/sessions/new.html.haml within layouts/application (108.6ms)
+[943eade3-209f-48da-8dc7-5615437b1aac]   Rendered shared/_bootstrap_flash.html.haml (0.2ms)
+[943eade3-209f-48da-8dc7-5615437b1aac] Completed 200 OK in 354ms (Views: 336.0ms | ActiveRecord: 2.9ms)
+[4f7220d7-024f-4594-94ca-facacae901a9] 
+[4f7220d7-024f-4594-94ca-facacae901a9] 
+[4f7220d7-024f-4594-94ca-facacae901a9] Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-11 12:17:06 +0700
+[4f7220d7-024f-4594-94ca-facacae901a9] Processing by Devise::SessionsController#create as HTML
+[4f7220d7-024f-4594-94ca-facacae901a9]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"b4TM+mnQhD1pS2j29tIVfBoVCBTBgsaGaOVI97mdoDtEwtRVo6oObg5EBOZvXf2dsLEsTfe1CP7WUPVtGbeB+Q==", "user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+[4f7220d7-024f-4594-94ca-facacae901a9]   [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1 /*application:Search,controller:sessions,action:create*/  [["email", "admin@example.com"]]
+[4f7220d7-024f-4594-94ca-facacae901a9] Completed 401 Unauthorized in 14ms (ActiveRecord: 1.2ms)
+[4f7220d7-024f-4594-94ca-facacae901a9] Processing by Devise::SessionsController#new as HTML
+[4f7220d7-024f-4594-94ca-facacae901a9]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"b4TM+mnQhD1pS2j29tIVfBoVCBTBgsaGaOVI97mdoDtEwtRVo6oObg5EBOZvXf2dsLEsTfe1CP7WUPVtGbeB+Q==", "user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+[4f7220d7-024f-4594-94ca-facacae901a9]   Rendered users/shared/_links.haml (0.5ms)
+[4f7220d7-024f-4594-94ca-facacae901a9]   Rendered users/sessions/new.html.haml within layouts/application (48.5ms)
+[4f7220d7-024f-4594-94ca-facacae901a9]   Rendered shared/_bootstrap_flash.html.haml (0.3ms)
+[4f7220d7-024f-4594-94ca-facacae901a9] Completed 200 OK in 319ms (Views: 244.9ms | ActiveRecord: 0.0ms)
+[1455c148-6142-4378-ad38-81df8bb05e2e] 
+[1455c148-6142-4378-ad38-81df8bb05e2e] 
+[1455c148-6142-4378-ad38-81df8bb05e2e] Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-11 12:19:41 +0700
+[1455c148-6142-4378-ad38-81df8bb05e2e] Processing by RegistrationsController#new as HTML
+[1455c148-6142-4378-ad38-81df8bb05e2e]   Rendered users/shared/_links.haml (0.4ms)
+[1455c148-6142-4378-ad38-81df8bb05e2e]   Rendered users/registrations/new.html.haml within layouts/application (165.6ms)
+[1455c148-6142-4378-ad38-81df8bb05e2e]   Rendered shared/_bootstrap_flash.html.haml (0.2ms)
+[1455c148-6142-4378-ad38-81df8bb05e2e] Completed 200 OK in 371ms (Views: 369.4ms | ActiveRecord: 0.0ms)
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139] 
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139] 
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139] Started POST "/users" for 127.0.0.1 at 2016-10-11 12:19:55 +0700
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139] Processing by RegistrationsController#create as HTML
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"YrgYVZlFpx4UJrVsY+Hvui72lQnuaiGiN0BD2Dcbk1tJ/gD6Uz8tTXMp2Xz6bgdbhFKxUNhd79qJ9f5ClzGymQ==", "user"=>{"email"=>"tubackkhoa@gmail.com", "first_name"=>"pham thanh", "last_name"=>"tu", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139]   [1m[36m (0.3ms)[0m  [1mBEGIN /*application:Search,controller:registrations,action:create*/[0m
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139]   [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'tubackkhoa@gmail.com' LIMIT 1
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139]   [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'tubackkhoa@gmail.com' LIMIT 1[0m
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139]   [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."authentication_token" = $1  ORDER BY "users"."id" ASC LIMIT 1 /*application:Search,controller:registrations,action:create*/  [["authentication_token", "UnyzhLCmM9zkawzrqAAK"]]
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139]   [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "first_name", "last_name", "authentication_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id" /*application:Search,controller:registrations,action:create*/[0m  [["email", "tubackkhoa@gmail.com"], ["encrypted_password", "$2a$10$vzNEHcu1D24DKiS8i25Rt.WmhjhlVMAgXqmNJfuBJoDO/eAs8rNwG"], ["first_name", "pham thanh"], ["last_name", "tu"], ["authentication_token", "UnyzhLCmM9zkawzrqAAK"], ["created_at", "2016-10-11 05:19:55.160429"], ["updated_at", "2016-10-11 05:19:55.160429"]]
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139]   [1m[35m (1.8ms)[0m  COMMIT /*application:Search,controller:registrations,action:create*/
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139]   [1m[36m (0.2ms)[0m  [1mBEGIN /*application:Search,controller:registrations,action:create*/[0m
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139]   [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7 /*application:Search,controller:registrations,action:create*/  [["last_sign_in_at", "2016-10-11 05:19:55.166456"], ["current_sign_in_at", "2016-10-11 05:19:55.166456"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-10-11 05:19:55.167507"], ["id", 2]]
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139]   [1m[36m (0.4ms)[0m  [1mCOMMIT /*application:Search,controller:registrations,action:create*/[0m
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139] Redirected to http://localhost:3000/active_admin
+[0c1d7957-07cb-4ce3-8ab2-c5637c14d139] Completed 302 Found in 136ms (ActiveRecord: 4.8ms)
+[c4936b9a-22ea-42af-8987-e5a1807aa763] 
+[c4936b9a-22ea-42af-8987-e5a1807aa763] 
+[c4936b9a-22ea-42af-8987-e5a1807aa763] Started GET "/active_admin" for 127.0.0.1 at 2016-10-11 12:19:55 +0700
+[c4936b9a-22ea-42af-8987-e5a1807aa763]   [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1 /*application:Search*/  [["id", 2]]
+[c4936b9a-22ea-42af-8987-e5a1807aa763] 
+ActionController::RoutingError (No route matches [GET] "/active_admin"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.1) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.1) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+[c4936b9a-22ea-42af-8987-e5a1807aa763]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+[c4936b9a-22ea-42af-8987-e5a1807aa763]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.4ms)
+[c4936b9a-22ea-42af-8987-e5a1807aa763]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.7ms)
+[c4936b9a-22ea-42af-8987-e5a1807aa763]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+[c4936b9a-22ea-42af-8987-e5a1807aa763]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (173.0ms)
+[c4936b9a-22ea-42af-8987-e5a1807aa763]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.5ms)
+[c4936b9a-22ea-42af-8987-e5a1807aa763]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.4ms)
+[c4936b9a-22ea-42af-8987-e5a1807aa763]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.5ms)
+[c4936b9a-22ea-42af-8987-e5a1807aa763]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.5ms)
+[c4936b9a-22ea-42af-8987-e5a1807aa763]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (88.8ms)
+[c4936b9a-22ea-42af-8987-e5a1807aa763]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.5ms)
+[c4936b9a-22ea-42af-8987-e5a1807aa763]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.5ms)
+[c4936b9a-22ea-42af-8987-e5a1807aa763]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (199.5ms)
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6] 
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6] 
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6] Started GET "/active_admin" for 127.0.0.1 at 2016-10-11 12:20:08 +0700
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6]   [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1 /*application:Search*/[0m  [["id", 2]]
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6] 
+ActionController::RoutingError (No route matches [GET] "/active_admin"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.1) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.1) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.6ms)
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (156.9ms)
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.4ms)
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.3ms)
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.3ms)
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.3ms)
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (76.5ms)
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.3ms)
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.4ms)
+[ec85c616-b6c9-49b5-9905-ff16e9914eb6]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (172.0ms)
+[fa042639-5bdf-448a-a3c9-138f33091f18] 
+[fa042639-5bdf-448a-a3c9-138f33091f18] 
+[fa042639-5bdf-448a-a3c9-138f33091f18] Started GET "/superadmin" for 127.0.0.1 at 2016-10-11 12:20:21 +0700
+[fa042639-5bdf-448a-a3c9-138f33091f18]   [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1 /*application:Search*/  [["id", 2]]
+[fa042639-5bdf-448a-a3c9-138f33091f18] 
+ActionController::RoutingError (No route matches [GET] "/superadmin"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.1) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.1) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+[fa042639-5bdf-448a-a3c9-138f33091f18]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+[fa042639-5bdf-448a-a3c9-138f33091f18]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.4ms)
+[fa042639-5bdf-448a-a3c9-138f33091f18]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+[fa042639-5bdf-448a-a3c9-138f33091f18]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+[fa042639-5bdf-448a-a3c9-138f33091f18]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (160.7ms)
+[fa042639-5bdf-448a-a3c9-138f33091f18]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.4ms)
+[fa042639-5bdf-448a-a3c9-138f33091f18]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.4ms)
+[fa042639-5bdf-448a-a3c9-138f33091f18]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.4ms)
+[fa042639-5bdf-448a-a3c9-138f33091f18]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.4ms)
+[fa042639-5bdf-448a-a3c9-138f33091f18]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (83.0ms)
+[fa042639-5bdf-448a-a3c9-138f33091f18]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.4ms)
+[fa042639-5bdf-448a-a3c9-138f33091f18]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.6ms)
+[fa042639-5bdf-448a-a3c9-138f33091f18]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (180.5ms)
+[4d053937-7c21-43ce-9b52-24360649c8a4] 
+[4d053937-7c21-43ce-9b52-24360649c8a4] 
+[4d053937-7c21-43ce-9b52-24360649c8a4] Started GET "/pages/about" for 127.0.0.1 at 2016-10-11 12:20:36 +0700
+[4d053937-7c21-43ce-9b52-24360649c8a4] Processing by PagesController#about as HTML
+[4d053937-7c21-43ce-9b52-24360649c8a4]   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1 /*application:Search,controller:pages,action:about*/[0m  [["id", 2]]
+[4d053937-7c21-43ce-9b52-24360649c8a4]   Rendered pages/about.html.haml within layouts/application (0.8ms)
+[4d053937-7c21-43ce-9b52-24360649c8a4]   Rendered shared/_bootstrap_flash.html.haml (0.2ms)
+[4d053937-7c21-43ce-9b52-24360649c8a4] Completed 200 OK in 182ms (Views: 179.4ms | ActiveRecord: 0.3ms)
+[45100f01-4973-49f9-abff-8d33af20eddb] 
+[45100f01-4973-49f9-abff-8d33af20eddb] 
+[45100f01-4973-49f9-abff-8d33af20eddb] Started GET "/pages/contact_us" for 127.0.0.1 at 2016-10-11 12:20:49 +0700
+[45100f01-4973-49f9-abff-8d33af20eddb] Processing by PagesController#contact_us as HTML
+[45100f01-4973-49f9-abff-8d33af20eddb]   [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1 /*application:Search,controller:pages,action:contact_us*/  [["id", 2]]
+[45100f01-4973-49f9-abff-8d33af20eddb]   Rendered pages/contact_us.html.haml within layouts/application (70.1ms)
+[45100f01-4973-49f9-abff-8d33af20eddb]   Rendered shared/_bootstrap_flash.html.haml (0.1ms)
+[45100f01-4973-49f9-abff-8d33af20eddb] Completed 200 OK in 281ms (Views: 274.9ms | ActiveRecord: 0.4ms)
+[65e3fca8-bfd6-43a5-8d42-8a5148771c7e] 
+[65e3fca8-bfd6-43a5-8d42-8a5148771c7e] 
+[65e3fca8-bfd6-43a5-8d42-8a5148771c7e] Started GET "/my/profile" for 127.0.0.1 at 2016-10-11 12:21:06 +0700
+[65e3fca8-bfd6-43a5-8d42-8a5148771c7e] Processing by RegistrationsController#edit as HTML
+[65e3fca8-bfd6-43a5-8d42-8a5148771c7e]   [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1 /*application:Search*/[0m  [["id", 2]]
+[65e3fca8-bfd6-43a5-8d42-8a5148771c7e]   Rendered users/registrations/edit.html.haml within layouts/application (111.1ms)
+[65e3fca8-bfd6-43a5-8d42-8a5148771c7e]   Rendered shared/_bootstrap_flash.html.haml (0.1ms)
+[65e3fca8-bfd6-43a5-8d42-8a5148771c7e] Completed 200 OK in 317ms (Views: 314.3ms | ActiveRecord: 0.4ms)
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992] 
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992] 
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992] Started GET "/users/sign_out" for 127.0.0.1 at 2016-10-11 12:21:43 +0700
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992] 
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.1) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.1) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.8ms)
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (175.4ms)
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.4ms)
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.4ms)
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.2ms)
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.3ms)
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (79.5ms)
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.3ms)
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.5ms)
+[6061c5c1-96d3-4473-a7f0-55ad3a05a992]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (182.1ms)
+[aa4c2e47-85a6-44db-a9a6-c7478f7eeb57] 
+[aa4c2e47-85a6-44db-a9a6-c7478f7eeb57] 
+[aa4c2e47-85a6-44db-a9a6-c7478f7eeb57] Started GET "/" for 127.0.0.1 at 2016-10-11 12:21:51 +0700
+[aa4c2e47-85a6-44db-a9a6-c7478f7eeb57] Processing by HomeController#index as HTML
+[aa4c2e47-85a6-44db-a9a6-c7478f7eeb57]   [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1 /*application:Search,controller:home,action:index*/  [["id", 2]]
+[aa4c2e47-85a6-44db-a9a6-c7478f7eeb57]   Rendered home/index.html.haml within layouts/application (65.1ms)
+[aa4c2e47-85a6-44db-a9a6-c7478f7eeb57]   Rendered shared/_bootstrap_flash.html.haml (0.1ms)
+[aa4c2e47-85a6-44db-a9a6-c7478f7eeb57] Completed 200 OK in 279ms (Views: 276.0ms | ActiveRecord: 0.4ms)
+[fee25529-2552-4c9e-8db4-251c90561a09] 
+[fee25529-2552-4c9e-8db4-251c90561a09] 
+[fee25529-2552-4c9e-8db4-251c90561a09] Started GET "/users" for 127.0.0.1 at 2016-10-11 12:22:01 +0700
+[fee25529-2552-4c9e-8db4-251c90561a09] 
+ActionController::RoutingError (No route matches [GET] "/users"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.1) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.1) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+[fee25529-2552-4c9e-8db4-251c90561a09]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+[fee25529-2552-4c9e-8db4-251c90561a09]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.7ms)
+[fee25529-2552-4c9e-8db4-251c90561a09]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+[fee25529-2552-4c9e-8db4-251c90561a09]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+[fee25529-2552-4c9e-8db4-251c90561a09]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (172.0ms)
+[fee25529-2552-4c9e-8db4-251c90561a09]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.6ms)
+[fee25529-2552-4c9e-8db4-251c90561a09]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.5ms)
+[fee25529-2552-4c9e-8db4-251c90561a09]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.4ms)
+[fee25529-2552-4c9e-8db4-251c90561a09]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.3ms)
+[fee25529-2552-4c9e-8db4-251c90561a09]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (76.0ms)
+[fee25529-2552-4c9e-8db4-251c90561a09]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.5ms)
+[fee25529-2552-4c9e-8db4-251c90561a09]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.6ms)
+[fee25529-2552-4c9e-8db4-251c90561a09]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (179.1ms)
+[484b5dbb-f7c5-44ea-921c-5c400c054de5] 
+[484b5dbb-f7c5-44ea-921c-5c400c054de5] 
+[484b5dbb-f7c5-44ea-921c-5c400c054de5] Started GET "/active_admin" for 127.0.0.1 at 2016-10-11 12:22:16 +0700
+[484b5dbb-f7c5-44ea-921c-5c400c054de5]   [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1 /*application:Search*/[0m  [["id", 2]]
+[484b5dbb-f7c5-44ea-921c-5c400c054de5] 
+ActionController::RoutingError (No route matches [GET] "/active_admin"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.1) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.1) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.1) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+[484b5dbb-f7c5-44ea-921c-5c400c054de5]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+[484b5dbb-f7c5-44ea-921c-5c400c054de5]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.6ms)
+[484b5dbb-f7c5-44ea-921c-5c400c054de5]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.1ms)
+[484b5dbb-f7c5-44ea-921c-5c400c054de5]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+[484b5dbb-f7c5-44ea-921c-5c400c054de5]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (168.6ms)
+[484b5dbb-f7c5-44ea-921c-5c400c054de5]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.5ms)
+[484b5dbb-f7c5-44ea-921c-5c400c054de5]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.5ms)
+[484b5dbb-f7c5-44ea-921c-5c400c054de5]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.4ms)
+[484b5dbb-f7c5-44ea-921c-5c400c054de5]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.4ms)
+[484b5dbb-f7c5-44ea-921c-5c400c054de5]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (81.1ms)
+[484b5dbb-f7c5-44ea-921c-5c400c054de5]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.3ms)
+[484b5dbb-f7c5-44ea-921c-5c400c054de5]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.7ms)
+[484b5dbb-f7c5-44ea-921c-5c400c054de5]   Rendered /Users/thanhtu/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (180.0ms)
