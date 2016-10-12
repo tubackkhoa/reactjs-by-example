@@ -12,7 +12,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
 import DatePicker from 'material-ui/DatePicker'
 
-import ThemeManager from 'material-ui/Styles/ThemeManager'
+import ThemeManager from 'material-ui/styles/themeManager'
 
 
 import HorizontalLinearStepper from './components/HorizontalLinearStepper' 
@@ -74,8 +74,6 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>        
         <div style={styles.container}>
-          
-
           <header>
             <AppBar title="ZoomFleet" />
           </header>
@@ -90,7 +88,7 @@ class App extends Component {
             <DatePicker hintText="Landscape Dialog" mode="landscape" />
             <HorizontalLinearStepper/>
           </Dialog>
-          <h1>Material-UI-DEMO-GOOD</h1>
+          <h1>Material-UI-DEMO-GOOOOOD</h1>
           <h2>Example project</h2>
           <RaisedButton
             label="Super Secret Password"

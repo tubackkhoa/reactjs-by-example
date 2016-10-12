@@ -14,9 +14,7 @@
     "chapter5": "APP_BASENAME='chapter5' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "chapter6": "APP_BASENAME='chapter6' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "chapter6-iso": "APP_BASENAME='chapter6-iso' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
-
     "sass": "sass --watch material-ui/src/stylesheets/main.scss:material-ui/src/www/main.css",
-
     "start": "APP_BASENAME='material-ui' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "build": "APP_BASENAME='material-ui' webpack --config webpack-production.config.js --progress --colors"
   },
@@ -69,7 +67,7 @@
     "font-awesome-webpack": "0.0.3",
     "history": "^4.3.0",
     "jquery": "^3.1.1",
-    "material-ui": "^0.15.0",
+    "material-ui": "^0.15.4",
     "object-assign": "^4.0.1",
     "react": "^15.0.1",
     "react-dom": "^15.2.1",
