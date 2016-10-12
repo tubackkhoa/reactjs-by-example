@@ -14,6 +14,9 @@
     "chapter5": "APP_BASENAME='chapter5' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "chapter6": "APP_BASENAME='chapter6' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "chapter6-iso": "APP_BASENAME='chapter6-iso' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
+
+    "sass": "sass --watch material-ui/src/stylesheets/main.scss:material-ui/src/www/main.css",
+
     "start": "APP_BASENAME='material-ui' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "build": "APP_BASENAME='material-ui' webpack --config webpack-production.config.js --progress --colors"
   },
@@ -22,30 +25,34 @@
     "babel": "^6.5.2",
     "babel-core": "^6.3.26",
     "babel-eslint": "^6.0.4",
+    "babel-jest": "^16.0.0",
     "babel-loader": "^6.2.4",
+    "babel-plugin-transform-replace-object-assign": "^0.2.1",
     "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-2": "^6.17.0",
-    "babel-plugin-transform-replace-object-assign": "^0.2.1",
+    "browser-sync": "^2.14.3",
     "expose-loader": "^0.7.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.7.2",
+    "jest-cli": "^16.0.1",
+    "node-sass": "^3.10.1",
+    "react-addons": "^0.9.1-deprecated",
+    "react-addons-create-fragment": "^15.3.0",
+    "react-addons-css-transition-group": "^15.3.0",
+    "react-addons-linked-state-mixin": "^15.3.0",
+    "react-addons-perf": "^15.3.0",
+    "react-addons-pure-render-mixin": "^15.3.0",
+    "react-addons-test-utils": "^15.3.0",
+    "react-addons-transition-group": "^15.3.0",
+    "react-addons-update": "^15.3.0",
     "react-hot-loader": "^1.3.0",
+    "react-test-renderer": "^15.3.2",
+    "sass-loader": "^4.0.2",
     "transfer-webpack-plugin": "^0.1.4",
     "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0",
-    "jest-cli": "^16.0.1",
-    "babel-jest": "^16.0.0",
-    "react-test-renderer": "^15.3.2",
-    "react-addons": "^0.9.1-deprecated",
-    "react-addons-transition-group": "^15.3.0",
-    "react-addons-linked-state-mixin": "^15.3.0",
-    "react-addons-create-fragment": "^15.3.0",
-    "react-addons-update": "^15.3.0",
-    "react-addons-perf": "^15.3.0",
-    "react-addons-css-transition-group": "^15.3.0",
-    "react-addons-pure-render-mixin": "^15.3.0",
-    "react-addons-test-utils": "^15.3.0"
+    "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
     "bootstrap": "^3.3.5",
@@ -76,7 +83,7 @@
   "jest": {
     "verbose": true,
     "automock": true,
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",    
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "unmockedModulePathPatterns": [
       "react"
     ],
@@ -86,7 +93,7 @@
       "json"
     ],
     "testPathDirs": [
-      "./material-ui/src/app/pages"     
+      "./material-ui/src/app/pages"
     ]
   }
 }

@@ -15,8 +15,8 @@ import DatePicker from 'material-ui/DatePicker'
 import ThemeManager from 'material-ui/Styles/ThemeManager'
 
 
-import HorizontalLinearStepper from '../components/HorizontalLinearStepper' 
-import TableExampleComplex from '../components/TableExampleComplex' 
+import HorizontalLinearStepper from './components/HorizontalLinearStepper' 
+import TableExampleComplex from './components/TableExampleComplex' 
 
 const styles = {
   container: {

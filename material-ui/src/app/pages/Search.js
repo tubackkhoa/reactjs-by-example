@@ -23,7 +23,7 @@ var Search = React.createClass({
             <div className="input-group">
               <input type="text" className="form-control" placeholder="Search for MCBooks..." ref='searchInput'/>
             <span className="input-group-btn">
-              <button className="btn btn-default" type="button" onClick={this.performSearch}>Go!</button>
+              <button className="btn btn-primary" type="button" onClick={this.performSearch}>Go!</button>
             </span>
             </div>
           </div>

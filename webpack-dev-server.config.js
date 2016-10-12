@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+// const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require('path');
 const buildPath = path.resolve(__dirname, 'build');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
@@ -45,6 +46,10 @@ const config = {
       // "React": "react"
     }),
 
+    // new ExtractTextPlugin('/[name].css?[hash]-[chunkhash]-[contenthash]-[name]',  {
+    //     allChunks: true
+    // }),
+
     // Moves files
     new TransferWebpackPlugin([
       {from: 'www'},
@@ -66,6 +71,10 @@ const config = {
         include: path.join(__dirname, BASENAME + '/src')
       },
       { test: /\.css$/, loader: "style-loader!css-loader"},
+      // { test: /\.scss$/, loader: ExtractTextPlugin.extract(
+      //   'style', // backup loader when not building .css file
+      //   'css!sass' // loaders to preprocess CSS
+      // )},      
       { test: /\.woff(\d+)?$/, loader: 'url?prefix=font/&limit=5000&mimetype=application/font-woff' },
       { test: /\.ttf$/, loader: 'file?prefix=font/' },
       { test: /\.eot$/, loader: 'file?prefix=font/' },
@@ -74,6 +83,10 @@ const config = {
       { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader"}
     ],
   },
+
+  // sassLoader: {
+  //   includePaths: [path.resolve(__dirname, BASENAME + "/src/stylesheets")]
+  // }
 
   // externals: {    
   //   'react': 'React',

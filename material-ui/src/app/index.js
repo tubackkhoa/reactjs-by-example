@@ -16,6 +16,8 @@ import Search from './pages/Search'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin();
 
+import s from '../www/main.css';
+
 /* Comment out these lines to support router via hash */
 // import {hashHistory} from 'react-router'
 

@@ -1,0 +1,12 @@
+{
+  "name": "pages",
+  "files": [
+    "lib",    
+    "src"
+  ],
+  "main": "lib/index",
+  "scripts": {
+     "build": "rimraf lib && babel ./src -d lib"     
+  }
+
+}
