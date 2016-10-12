@@ -30,8 +30,8 @@ const config = {
   output: {
     path: buildPath, // Path of output file
     // build all javascript files as app.js
-    publicPath: '/static/',
-    filename: 'app.js',
+    publicPath: '/',
+    filename: 'static/app.js',
   },
   plugins: [
     // Enables Hot Modules Replacement

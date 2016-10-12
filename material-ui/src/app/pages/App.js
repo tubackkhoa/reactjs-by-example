@@ -86,7 +86,7 @@ class App extends Component {
             actions={standardActions}
             onRequestClose={this.handleRequestClose}
           >
-            123456
+            abcdefc
             <DatePicker hintText="Landscape Dialog" mode="landscape" />
             <HorizontalLinearStepper/>
           </Dialog>

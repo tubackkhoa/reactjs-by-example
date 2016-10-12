@@ -30,6 +30,10 @@ const Home = ({ children }) => (
         <ListItem primaryText="/App" leftIcon={<ContentSend />} />
       </Link>
 
+      <Link to="/search" activeStyle={ACTIVE}>
+        <ListItem primaryText="/Search" leftIcon={<ContentSend />} />
+      </Link>
+
       <Link to="/users" activeStyle={ACTIVE}>
         <ListItem primaryText="/Users" leftIcon={<ContentDrafts />} />
       </Link>

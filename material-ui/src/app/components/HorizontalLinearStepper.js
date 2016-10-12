@@ -38,7 +38,7 @@ class HorizontalLinearStepper extends React.Component {
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-        return 'Select mcbook settings...';
+        return 'Select mcbook setting ...';
       case 1:
         return 'What is an ad group anyways?';
       case 2:
@@ -59,7 +59,7 @@ class HorizontalLinearStepper extends React.Component {
             <StepLabel>Select campaign settings</StepLabel>
           </Step>
           <Step>
-            <StepLabel>Create an ad</StepLabel>
+            <StepLabel>Create an ad 1</StepLabel>
           </Step>
           <Step>
             <StepLabel>Create an ad</StepLabel>
