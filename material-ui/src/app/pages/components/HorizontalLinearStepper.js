@@ -88,8 +88,8 @@ class HorizontalLinearStepper extends React.Component {
                   onTouchTap={this.handlePrev}
                   style={{marginRight: 12}}
                 />
-                <RaisedButton
-                  label={stepIndex === 2 ? 'Finish' : 'Next'}
+                <RaisedButton className="btn-mcbook"
+                  label={stepIndex === 2 ? 'Finish' : 'Next Step'}
                   primary={true}
                   onTouchTap={this.handleNext}
                 />

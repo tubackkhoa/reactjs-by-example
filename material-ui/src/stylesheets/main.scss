@@ -1,7 +1,2 @@
-
-.my-datepicker-component {
-  @import 'utils/all';
-  @import 'base/all';
-  @import 'components/all';
-  @import 'themes/all';
-}  
+@import 'base/all';  
+@import 'components/all'; 
