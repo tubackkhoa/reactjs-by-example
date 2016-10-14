@@ -14,6 +14,8 @@
     "chapter5": "APP_BASENAME='chapter5' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "chapter6": "APP_BASENAME='chapter6' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "chapter6-iso": "APP_BASENAME='chapter6-iso' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
+
+    "pug": "pug material-ui/src/www/_pug --out material-ui/src/www --pretty",
     "sass": "sass --watch material-ui/src/stylesheets/main.scss:material-ui/src/www/main.css",
     "start": "APP_BASENAME='material-ui' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "build": "APP_BASENAME='material-ui' webpack --config webpack-production.config.js --progress --colors"
