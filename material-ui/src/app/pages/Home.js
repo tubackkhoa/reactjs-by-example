@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link, IndexLink} from 'react-router'
 import {List, ListItem} from 'material-ui/List'
+
 import ContentInbox from 'material-ui/svg-icons/content/inbox'
 import ActionGrade from 'material-ui/svg-icons/action/grade'
 import ContentSend from 'material-ui/svg-icons/content/send'
@@ -15,43 +16,48 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const ACTIVE = { color: deepOrange500 };
 
+// by default, the content from component will be placed in children
+// and the route in the component will fetch content from children
+// so call shallow render
 const Home = ({ children }) => (
   
   <MuiThemeProvider muiTheme={getMuiTheme()}>
   <div>
-    <h1>APP!</h1>    
-    <List>
-
-      <Link to="/" activeStyle={ACTIVE}>
-        <ListItem primaryText="/Home" leftIcon={<ContentInbox />} />
-      </Link>
-      
-      <Link to="/app" activeStyle={ACTIVE}>
-        <ListItem primaryText="/App" leftIcon={<ContentSend />} />
-      </Link>
-
-      <Link to="/search" activeStyle={ACTIVE}>
-        <ListItem primaryText="/Search" leftIcon={<ContentSend />} />
-      </Link>
-
-      <Link to="/users" activeStyle={ACTIVE}>
-        <ListItem primaryText="/Users" leftIcon={<ContentDrafts />} />
-      </Link>
-
-      <Link to="/users/ryan" activeStyle={ACTIVE}>
-        <ListItem primaryText="/Users/ryan" leftIcon={<ContentInbox />} />
-      </Link>
-
-      <Link to="/users/ryan?name=nmtnmt" activeStyle={ACTIVE}>
-        <ListItem primaryText="/Users/ryan?name=nmtnmt" leftIcon={<ContentInbox />} />
-      </Link>
-
-      <Link to="/about" activeStyle={ACTIVE}>
-        <ListItem primaryText="/About" leftIcon={<ContentInbox />} />
-      </Link>
-
-    </List>    
-    {children}
+            
+    <nav className="navbar navbar-default">
+      <div className="container-fluid">
+        <ul className="nav navbar-nav">
+          <li>
+            <Link to="/">
+              <ListItem primaryText="/Home" leftIcon={<ContentInbox />} />
+            </Link> 
+          </li>
+          <li>
+            <Link to="/app">
+              <ListItem primaryText="/App" />
+            </Link>
+          </li>
+          <li>
+            <Link to="/search">
+              <ListItem primaryText="/Search" />
+            </Link>
+          </li>
+          <li>
+            <Link to="/users">
+              <ListItem primaryText="/Users" />
+            </Link>
+          </li>          
+          <li>
+            <Link to="/about">
+              <ListItem primaryText="/About" />
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div className="container">
+      {children}
+    </div>
   </div>
   </MuiThemeProvider>        
   

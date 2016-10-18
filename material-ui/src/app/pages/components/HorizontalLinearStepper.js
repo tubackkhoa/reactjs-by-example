@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 import {
   Step,
   Stepper,
   StepLabel,
-} from 'material-ui/Stepper';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
+} from 'material-ui/Stepper'
+import RaisedButton from 'material-ui/RaisedButton'
+import FlatButton from 'material-ui/FlatButton'
 
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
@@ -18,7 +18,7 @@ class HorizontalLinearStepper extends React.Component {
   state = {
     finished: false,
     stepIndex: 0,
-  };
+  }
 
   handleNext = () => {
     const {stepIndex} = this.state;
