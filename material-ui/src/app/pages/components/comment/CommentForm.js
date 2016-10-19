@@ -1,4 +1,10 @@
 import React from 'react'
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
+
+// we import material icon font from server
+import FontIcon from 'material-ui/FontIcon'
+
 
 class CommentForm extends React.Component{
 
@@ -30,17 +36,24 @@ class CommentForm extends React.Component{
   render(){
     return (
       <form className="commentForm" onSubmit={this.handleSubmit}>
-        <input type="text"
-          placeholder="Your name"
+        <TextField
           value={this.state.author}
+          hintText="Your name"
           onChange={this.handleAuthorChange}
-        />
-        <input type="text"
-          placeholder="Say something.."
+        /><br />
+
+        <TextField
           value={this.state.text}
+          hintText="Say something.."
           onChange={this.handleTextChange}
-        />
-        <input type="submit" value="Post" />
+        /><br />
+        <RaisedButton
+          label="Post"          
+          secondary={true}
+          type="submit"
+          icon={<FontIcon className="material-icons">save</FontIcon>}
+        />        
+        
       </form>
     )
   }

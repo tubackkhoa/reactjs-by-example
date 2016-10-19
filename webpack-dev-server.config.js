@@ -3,7 +3,10 @@ const webpack = require('webpack');
 const path = require('path');
 const buildPath = path.resolve(__dirname, 'build');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
-const TransferWebpackPlugin = require('transfer-webpack-plugin');
+// for dev, we use more complex transfer plugin, which can transfer when changes
+// const TransferWebpackPlugin = require('transfer-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
 const BASENAME = process.env.APP_BASENAME;
 const fileMap = {
   'chapter6-iso' : '/src/www/scripts/client.js'
@@ -11,7 +14,7 @@ const fileMap = {
 const scriptFile = fileMap[BASENAME] || '/src/app/index.js';
 
 const config = {
-  // Entry points to the project
+  // Entry points to the project, also webpack server
   entry: [
     'webpack/hot/dev-server',
     'webpack/hot/only-dev-server',    
@@ -32,7 +35,7 @@ const config = {
     path: buildPath, // Path of output file
     // build all javascript files as app.js
     publicPath: '/',
-    filename: 'static/app.js',
+    filename: 'app.js',
   },
   plugins: [
     // Enables Hot Modules Replacement
@@ -51,9 +54,17 @@ const config = {
     // }),
 
     // Moves files
-    new TransferWebpackPlugin([
-      {from: 'www'},
-    ], path.resolve(__dirname, BASENAME + '/src')),
+    // new TransferWebpackPlugin([
+    //   {from: 'www'},
+    // ], path.resolve(__dirname, BASENAME + '/src')),
+    new CopyWebpackPlugin([            
+      { from: BASENAME + '/src/www' }
+    ],{
+        // Doesn't copy css which is watched by css-loader   
+        // we should also ignore other extensions watched by loader 
+        // alternative for watch => loader: "raw-loader" then require the file
+        ignore: ['*.css','*.pug']
+    })
   ],
 
   resolve: {

@@ -17,8 +17,11 @@
     "pug": "pug material-ui/src/www/_pug --out material-ui/src/www --pretty",
     "server": "PORT=5000 nodemon -e js,jsx,jade,pug --watch material-ui/src/server material-ui/src/server/index.js",
     "sass": "sass --watch material-ui/src/stylesheets/main.scss:material-ui/src/www/main.css",
-    "start": "APP_BASENAME='material-ui' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
-    "build": "APP_BASENAME='material-ui' webpack --config webpack-production.config.js --progress --colors"
+    
+    "dev": "APP_BASENAME='material-ui' webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
+
+    "start": "run-p dev sass",
+    "build": "rimraf dist && APP_BASENAME='material-ui' webpack --config webpack-production.config.js --progress --colors"
   },
   "private": true,
   "devDependencies": {
@@ -34,6 +37,7 @@
     "babel-preset-stage-2": "^6.17.0",
     "body-parser": "^1.15.2",
     "browser-sync": "^2.14.3",
+    "copy-webpack-plugin": "^3.0.1",
     "expose-loader": "^0.7.1",
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -53,6 +57,7 @@
     "react-addons-update": "^15.3.0",
     "react-hot-loader": "^1.3.0",
     "react-test-renderer": "^15.3.2",
+    "rimraf": "^2.5.4",
     "sass-loader": "^4.0.2",
     "transfer-webpack-plugin": "^0.1.4",
     "webpack": "^1.12.9",
@@ -67,13 +72,12 @@
     "debug": "^2.2.0",
     "ejs": "^2.3.3",
     "eslint-plugin-react": "^2.3.0",
-    "express": "^4.12.3",
     "file-loader": "^0.8.4",
     "font-awesome": "^4.3.0",
     "font-awesome-webpack": "0.0.3",
     "history": "^4.3.0",
     "jquery": "^3.1.1",
-    "material-ui": "^0.15.4",
+    "material-ui": "^0.16.0",
     "object-assign": "^4.0.1",
     "react": "^15.0.1",
     "react-dom": "^15.2.1",

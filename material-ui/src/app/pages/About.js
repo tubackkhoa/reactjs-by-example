@@ -1,3 +1,4 @@
+// also support bootstrap for layout
 import React from 'react'
 
 const About = () => (

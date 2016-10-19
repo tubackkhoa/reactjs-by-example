@@ -7,12 +7,8 @@ import RaisedButton from 'material-ui/RaisedButton'
 import Dialog from 'material-ui/Dialog'
 import {deepOrange500,cyan500} from 'material-ui/styles/colors'
 import FlatButton from 'material-ui/FlatButton'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
 import DatePicker from 'material-ui/DatePicker'
-
-import ThemeManager from 'material-ui/styles/themeManager'
 
 
 import HorizontalLinearStepper from './components/HorizontalLinearStepper' 
@@ -23,16 +19,6 @@ const styles = {
     textAlign: 'center'    
   },
 };
-
-const muiTheme = getMuiTheme({
-  palette: {
-    accent1Color: deepOrange500,
-    textColor: cyan500
-  },
-  appBar: {
-    height: 50,
-  }
-});
 
 class App extends Component {
   constructor(props, context) {
@@ -72,12 +58,8 @@ class App extends Component {
     );
 
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>        
-        <div style={styles.container}>
-          <header>
-            <AppBar title="ZoomFleet" />
-          </header>
-
+         
+        <div style={styles.container}>          
           <Dialog
             open={this.state.open}
             title="MCBook Dialog"
@@ -97,8 +79,8 @@ class App extends Component {
           />
           <TableExampleComplex />
         </div>
-      </MuiThemeProvider>
-    );
+      
+    )
   }
 }
 

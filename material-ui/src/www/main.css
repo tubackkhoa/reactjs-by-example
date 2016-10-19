@@ -2,7 +2,13 @@
   box-sizing: border-box;
   position: relative; }
 
+body {
+  font-family: 'Roboto'; 
+}
+
 .btn-mcbook button {
-  background-color: red !important; }
+  background-color: red !important; 
+  color:inherit;
+}
 
 /*# sourceMappingURL=main.css.map */

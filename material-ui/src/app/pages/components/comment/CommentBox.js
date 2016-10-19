@@ -13,6 +13,7 @@ class CommentBox extends React.Component {
   // we have to bind it for specification
   componentDidMount(){
     this.loadCommentsFromServer()
+    // $(this.refs.title).text("ngon vai")
     // setInterval(this.loadCommentsFromServer, this.props.pollInterval)    
   }
 
@@ -20,13 +21,22 @@ class CommentBox extends React.Component {
   // with promise, we have to apply function one by one
   loadCommentsFromServer = (options, revert) => {
     fetch(this.props.url, options)
+    .then(response => {          
+      if (response.status >= 200 && response.status < 300) {
+        return response
+      } else {
+        var error = new Error(response.statusText)
+        error.response = response
+        throw error
+      }
+    })
     .then(ret => ret.json())
     .then(json => this.setState({data: json}))
     .catch(ex => {
       if(revert){
-        this.setState({data: comments})  
+        this.setState({data: revert})  
       }      
-      console.log('Parsing failed', ex)
+      console.log('Parsing failed: '+this.props.url, ex)
     })
   }
 
@@ -43,7 +53,7 @@ class CommentBox extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({index: index})
-    }, true)
+    }, comments)
   }
 
   handleCommentSubmit = (comment) => {
@@ -61,7 +71,7 @@ class CommentBox extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(comment)
-    }, true)
+    }, comments)
   }
 
   render(){
