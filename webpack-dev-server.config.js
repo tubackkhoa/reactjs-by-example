@@ -16,6 +16,7 @@ const scriptFile = fileMap[BASENAME] || '/src/app/index.js';
 const config = {
   // Entry points to the project, also webpack server
   entry: [
+    'react-hot-loader/patch',
     'webpack/hot/dev-server',
     'webpack/hot/only-dev-server',    
     path.join(__dirname, '/' + BASENAME + scriptFile)    
@@ -77,7 +78,7 @@ const config = {
         // React-hot loader and
         test: /\.jsx?$/, // All .js files
         // react-hot is like browser sync and babel loads jsx and es6-7
-        loaders: ['react-hot', 'babel', 'babel-loader'], 
+        loaders: [/*'react-hot'*/, 'babel', 'babel-loader'], 
         exclude: [nodeModulesPath],
         include: path.join(__dirname, BASENAME + '/src')
       },

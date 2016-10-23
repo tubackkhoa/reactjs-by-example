@@ -56,7 +56,7 @@ class HorizontalLinearStepper extends React.Component {
       <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
         <Stepper activeStep={stepIndex}>
           <Step>
-            <StepLabel>Select campaign settings</StepLabel>
+            <StepLabel>Select campaign setting</StepLabel>
           </Step>
           <Step>
             <StepLabel>Create an ad 1</StepLabel>

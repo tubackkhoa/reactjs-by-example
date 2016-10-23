@@ -3,12 +3,9 @@
   position: relative; }
 
 body {
-  font-family: 'Roboto'; 
-}
+  font-family: 'Roboto'; }
 
 .btn-mcbook button {
-  background-color: red !important; 
-  color:inherit;
-}
+  background-color: red !important; }
 
 /*# sourceMappingURL=main.css.map */

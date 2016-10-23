@@ -2,15 +2,8 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
-// all pages
-import App from './pages/App'
-import Home from './pages/Home'
-import Index from './pages/Index'
-import Users from './pages/Users'
-import UsersIndex from './pages/UsersIndex'
-import User from './pages/User'
-import About from './pages/About'
-import Search from './pages/Search'
+import { AppContainer } from 'react-hot-loader'
+import App from './App'
 
 // Needed for onTouchTap
 import injectTapEventPlugin from 'react-tap-event-plugin'
@@ -18,20 +11,20 @@ injectTapEventPlugin();
 
 import s from '../www/main.css';
 
-/* Comment out these lines to support router via hash */
-// import {hashHistory} from 'react-router'
-
 render((
-  <Router history={browserHistory}>
-    <Route path="/" component={Home}>
-      <IndexRoute component={Index}/>
-      <Route path="/about" component={About}/>
-      <Route path="/app" component={App}/>
-      <Route path="/search" component={Search}/>
-      <Route path="/users" component={Users}>     
-        <IndexRoute component={UsersIndex}/>   
-        <Route path=":id" component={User}/>
-      </Route>
-    </Route>
-  </Router>
+  <AppContainer>
+    <App />
+  </AppContainer>
 ), document.getElementById('app'))
+
+if (module.hot) {
+  // custom hot reload here
+  module.hot.accept('./App', () => {        
+    const NextApp = require('./App').default
+    render((
+      <AppContainer>
+         <NextApp />
+      </AppContainer>
+      ), document.getElementById('app'))    
+  })
+}

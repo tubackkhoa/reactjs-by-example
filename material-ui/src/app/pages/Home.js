@@ -48,6 +48,9 @@ const Home = ({ children }) => (
         <Link to="/about">
           <FlatButton label="About" />
         </Link>
+        <Link to="/todo">
+          <FlatButton label="Todo" />
+        </Link>
       </nav>      
       
       <div className="container">

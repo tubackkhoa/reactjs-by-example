@@ -21,7 +21,7 @@ var Search = React.createClass({
         <div className="row" style={tabStyles}>
           <div className="col-lg-8 col-lg-offset-2">
             <div className="input-group">
-              <input type="text" className="form-control" placeholder="Search for MCBooks..." ref='searchInput'/>
+              <input type="text" className="form-control" placeholder="Search for Books..." ref='searchInput'/>
             <span className="input-group-btn">
               <button className="btn btn-primary" type="button" onClick={this.performSearch}>Go!</button>
             </span>

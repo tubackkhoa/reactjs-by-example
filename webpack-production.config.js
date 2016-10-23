@@ -72,11 +72,11 @@ const config = {
                 // by default the first chunk is app.js and the second is main.css, following are map files
                 var htmlOutput = html.replace(
                   /<script\s+src=(["'])(.+?)app\.js\1/i,
-                  "<script src=$1" + stats.assetsByChunkName.main[0] + "$1");
+                  "<script src=$1$2" + stats.assetsByChunkName.main[0] + "$1");
 
                 htmlOutput = htmlOutput.replace(
                   /<link\s+(?:.*?)href=(["'])(.+?)main\.css\1/i,
-                  "<link rel=\"stylesheet\" type=\"text/css\" href=$1" + stats.assetsByChunkName.main[1] + "$1");                
+                  "<link rel=\"stylesheet\" type=\"text/css\" href=$1$2" + stats.assetsByChunkName.main[1] + "$1");                
 
                 fs.writeFileSync(
                     path.join(buildPath, htmlFileName),
@@ -92,7 +92,7 @@ const config = {
         // React-hot loader and
         test: /\.jsx?$/, // All .js files
         // react-hot is like browser sync and babel loads jsx and es6-7
-        loaders: ['react-hot', 'babel', 'babel-loader'], 
+        loaders: [/*'react-hot'*/, 'babel', 'babel-loader'], 
         exclude: [nodeModulesPath],
         include: path.join(__dirname, BASENAME + '/src')
       },

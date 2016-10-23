@@ -1,11 +1,6 @@
 import React from 'react'
 import CommentBox from './components/comment/CommentBox'
 
-const data = [
-  {id: 1, author: "Pete Hunt", text: "This is one comment"},
-  {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
-]
-
 class UserDetail extends React.Component {
 
   render() {
@@ -13,7 +8,7 @@ class UserDetail extends React.Component {
       return (
         <span>
           <strong>Name</strong>: {this.props.user.name}    
-          <CommentBox url="http://localhost:5000/api/comments"
+          <CommentBox url={"http://"+location.hostname + ":5000/api/comments"}
             pollInterval={2000}
           />
         </span>
