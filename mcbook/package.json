@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "test": "cross-env NODE_PATH=client NODE_ENV=test tape --require babel-register client/**/*.spec.js | tap-spec || true",
-    "sass": "node-sass --watch stylesheets/main.scss --output public/assets",
+    "sass": "node-sass stylesheets/main.scss public/assets/main.css && node-sass --watch stylesheets/main.scss --output public/assets",
     "server": "cross-env PORT=3000 nodemon -e js,jsx,jade,pug --watch server server/index.js",
     "dev": "cross-env PORT=7000 NODE_ENV=development nodemon --watch .babelrc --watch webpack-dev-server.js --watch webpack.config.js webpack-dev-server.js",
     "start": "run-p server sass dev",
