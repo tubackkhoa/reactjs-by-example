@@ -1,0 +1,24 @@
+
+
+.sd-calendar {
+  width: 14rem;
+  background: map-get($colors, primary);
+  color: white;
+  transition: all 0.25s ease-in-out;
+  overflow: hidden;
+
+  &.calendar-enter {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  &.calendar-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.calendar-leave-active {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}

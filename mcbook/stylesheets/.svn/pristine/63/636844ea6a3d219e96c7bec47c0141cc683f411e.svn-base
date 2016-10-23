@@ -1,0 +1,57 @@
+
+
+.sd-month {
+  @include clearfix();
+  width: 14rem;
+  height: auto;
+  background-color: map-get($colors, primary);
+  color: white;
+  padding: 1rem;
+  transition: all 0.25s ease-in-out;
+
+  &.month-enter {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  &.month-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.month-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    + .sd-month {
+      position: absolute;
+    }
+  }
+
+  &.month-leave-active {
+    opacity: 0;
+    z-index: -1;
+    transform: translateY(-1rem);
+  }
+
+  .sd-days {
+    @include clearfix();
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    padding: 0.5rem 0;
+    opacity: 0.5;
+  }
+
+  .sd-day {
+    width: percentage(1/7);
+    display: inline-block;
+    float: left;
+    font-size: 0.563rem;
+    text-align: center;
+    text-transform: uppercase;
+  }  
+}
+
+

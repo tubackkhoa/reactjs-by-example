@@ -1,0 +1,71 @@
+{
+  "name": "react-webpack-babel-hotreload-example",
+  "version": "1.3.0",
+  "description": "Example application for setting up React, React Router, Redux, Material-UI, Webpack, Babel, and React Hot Loader",
+  "author": "Pham Thanh Tu <tubackkhoa@gmail.com>",
+  "keywords": [
+    "example",
+    "hot reload",
+    "react",
+    "react-router",
+    "redux",
+    "react-router-redux",
+    "redux-saga",
+    "material-ui",
+    "react-hot-loader",
+    "webpack",
+    "babel"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tubackkhoa/reactjs-by-example.git"
+  },
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "cross-env NODE_PATH=client NODE_ENV=test tape --require babel-register client/**/*.spec.js | tap-spec || true",
+    "sass": "sass --watch stylesheets/main.scss:public/assets/main.css",
+    "server": "cross-env PORT=3000 nodemon -e js,jsx,jade,pug --watch server server/index.js",
+    "dev": "cross-env PORT=7000 NODE_ENV=development nodemon --watch .babelrc --watch webpack-dev-server.js --watch webpack.config.js webpack-dev-server.js",
+    "start": "run-p server sass dev",
+    "bundle": "cross-env NODE_ENV=production webpack"
+  },
+  "devDependencies": {
+    "babel-core": "^6.16.0",
+    "babel-eslint": "^7.0.0",
+    "babel-loader": "^6.2.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-2": "^6.16.0",
+    "babel-register": "^6.16.3",
+    "babel-runtime": "^6.11.0",
+    "cross-env": "^2.0.1",
+    "eslint": "^3.7.0",
+    "eslint-plugin-react": "^6.3.0",
+    "fetch-mock": "^5.5.0",
+    "nodemon": "^1.10.0",
+    "react-hot-loader": "^3.0.0-",
+    "redux-mock-store": "^1.2.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.2",
+    "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony",
+    "webpack": "^2.1.0-",
+    "webpack-dev-server": "^2.1.0-"
+  },
+  "dependencies": {
+    "es6-promise": "^4.0.5",
+    "isomorphic-fetch": "^2.2.1",
+    "material-ui": "^0.16.0",
+    "normalizr": "^2.2.1",
+    "ramda": "^0.22.1",
+    "react": "^15.2.0",
+    "react-dom": "^15.2.0",
+    "react-redux": "^4.4.0",
+    "react-router": "^2.8.0",
+    "react-router-redux": "^4.0.0",
+    "react-tap-event-plugin": "^1.0.0",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.7.0",
+    "redux-saga": "^0.12.0",
+    "redux-thunk": "^2.1.0",
+    "uuid": "^2.0.3"
+  }
+}
