@@ -30,7 +30,10 @@ if (OPTIMIZE) {
 	plugins.push(new Webpack.optimize.UglifyJsPlugin({
 		compressor: {
 			warnings: false
-		}
+		},
+		output: {
+      comments: false
+    }
 	}));
 }
 
