@@ -69,9 +69,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.7.0",
     "redux-persist": "^4.0.0-alpha6",
-    "redux-saga": "^0.12.0",
-    "redux-storage": "^4.1.1",
-    "redux-storage-engine-localstorage": "^1.1.2",
+    "redux-saga": "^0.12.0",        
     "redux-thunk": "^2.1.0",
     "uuid": "^2.0.3"
   }
