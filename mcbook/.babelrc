@@ -7,6 +7,9 @@
 			]
 		},
     "test": {
+      "plugins": [
+        ["transform-runtime"]
+      ],
       "presets": ["es2015"]
     }
 	}

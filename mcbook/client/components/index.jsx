@@ -30,7 +30,10 @@ const Index = ({ fetch_result, is_showing_dialog, fetch_url, showDialog, hideDia
 			icon={<FontIcon className="material-icons">save</FontIcon>}
 			onTouchTap={showDialog}/>
 
-			<Dialog open={is_showing_dialog} title='Example async fetch using Saga' actions={dialog_actions} onRequestClose={hideDialog}>
+			<Dialog open={is_showing_dialog} 
+			title='Example async fetch using Saga' 
+			autoScrollBodyContent={true}
+			actions={dialog_actions} onRequestClose={hideDialog}>
 				<TextField
 					id='text-field-controlled'
 					value={fetch_url}
@@ -40,7 +43,7 @@ const Index = ({ fetch_result, is_showing_dialog, fetch_url, showDialog, hideDia
 				<ul>
 					{fetch_result.map((obj, idx) => (
 						<li key={idx}>
-							<pre>{JSON.stringify(obj)}</pre>
+							<strong>{JSON.stringify(obj)}</strong>
 						</li>
 					))}
 				</ul>

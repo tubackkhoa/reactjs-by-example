@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
+import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
 
 const RouteExample1 = ({ fetch_result }) => (
 	<div>
@@ -12,14 +12,16 @@ const RouteExample1 = ({ fetch_result }) => (
 			))}
 		</ul>
 	</div>
-);
+)
 
 RouteExample1.propTypes = {
 	fetch_result: PropTypes.array.isRequired
-};
+}
 
+// map from state instead of props
 const mapStateToProps = (state) => ({
 	fetch_result: state.asyncFetchReducer.fetch_result
-});
+})
 
-export default connect(mapStateToProps, {})(RouteExample1);
+// no more action, just use from prop result
+export default connect(mapStateToProps, {})(RouteExample1)

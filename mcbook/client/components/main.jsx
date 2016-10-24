@@ -21,7 +21,7 @@ const Main = ({ children, is_showing_menu, hideMenu, showMenu }) => (
 			<Menu onTouchTap={hideMenu}>
 				<MenuItem primaryText='Index' containerElement={<Link to='/' />}/>
 				<MenuItem primaryText='Route Example 1' containerElement={<Link to='/route_example_1' />}/>
-				<MenuItem primaryText='Route Example 2' containerElement={<Link to='/route_example_2' />}/>
+				<MenuItem primaryText='Counter' containerElement={<Link to='/route_example_2' />}/>
 				<MenuItem primaryText='Reddit' containerElement={<Link to='/reddit' />}/>
 				<MenuItem primaryText='Note' containerElement={<Link to='/note' />}/>
 			</Menu>

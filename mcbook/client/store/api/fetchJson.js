@@ -24,3 +24,4 @@ export const fetchJson = (url, options = {}) => (
   .then(rejectErrors)
   .then((res) => res.json())
 )
+
