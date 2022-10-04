@@ -1,8 +1,8 @@
 ![Fancy logo](https://github.com/stefanjudis/github-light-dark-image-example/raw/main/dark.png#gh-dark-mode-only)
-![Fancy logo](https://github.com/stefanjudis/github-light-dark-image-example/raw/main/light.png#gh-light-mode-only)
+![Fancy logo](https://orai.io/images/logos/logo-full-h-light.png#gh-light-mode-only)
 
 ![Banner](https://github.com/stefanjudis/github-light-dark-image-example/raw/main/dark.png#gh-dark-mode-only)
-![Banner](https://orai.io/images/logos/logo-full-h-light.png#gh-light-mode-only)
+![Banner](https://github.com/stefanjudis/github-light-dark-image-example/raw/main/light.png#gh-light-mode-only)
 
 
 
