@@ -1,10 +1,40 @@
 
 
+## A test for light/dark mode images using hashes (deprecated)
 
-![GitHub-Mark-Light](https://orai.io/images/logos/logo-full-h-light.png#gh-dark-mode-only)
 
+```
+![Fancy logo](./dark.png#gh-dark-mode-only)
+![Fancy logo](./light.png#gh-light-mode-only)
+```
+## A test for light/dark mode images using `picture`
 
-![GitHub-Mark-Dark](https://orai.io/images/logos/logo-full-h-dark.png#gh-light-mode-only)
+```html
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="https://orai.io/images/logos/logo-full-h-light.png">
+  <img alt="Text changing depending on mode. Light: 'So light!' Dark: 'So dark!'" src="https://orai.io/images/logos/logo-full-h-light.png">
+</picture>
+```
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://orai.io/images/logos/logo-full-h-dark.png">
+  <img alt="Text changing depending on mode. Light: 'So light!' Dark: 'So dark!'" src="https://orai.io/images/logos/logo-full-h-dark.png">
+</picture>
+
+## A test for light/dark mode images using `picture` with relative paths 
+
+```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./dark.png">
+  <img alt="Text changing depending on mode. Light: 'So light!' Dark: 'So dark!'" src="./light.png">
+</picture>
+```
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./dark.png">
+  <img alt="Text changing depending on mode. Light: 'So light!' Dark: 'So dark!'" src="./light.png">
+</picture>
+
 
 reactjs-by-example
 ===========
