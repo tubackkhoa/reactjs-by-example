@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://orai.io/images/logos/logo-full-h-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://orai.io/images/logos/logo-full-h-light.png">
+</picture>
+
 reactjs-by-example
 ===========
 
