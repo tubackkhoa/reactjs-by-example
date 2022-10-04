@@ -1,26 +1,5 @@
-
-
-## A test for light/dark mode images using hashes (deprecated)
-
-
-```
-![Fancy logo](./dark.png#gh-dark-mode-only)
-![Fancy logo](./light.png#gh-light-mode-only)
-```
-## A test for light/dark mode images using `picture`
-
-
-<picture>
-  <source media="(prefers-color-scheme: light)" srcset="https://orai.io/images/logos/logo-full-h-light.png">
-  <img alt="Text changing depending on mode. Light: 'So light!' Dark: 'So dark!'" src="https://orai.io/images/logos/logo-full-h-light.png">
-</picture>
-
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://orai.io/images/logos/logo-full-h-dark.png">
-  <img alt="Text changing depending on mode. Light: 'So light!' Dark: 'So dark!'" src="https://orai.io/images/logos/logo-full-h-dark.png">
-</picture>
-
+![Fancy logo](https://github.com/stefanjudis/github-light-dark-image-example/raw/main/dark.png#gh-dark-mode-only)
+![Fancy logo](https://github.com/stefanjudis/github-light-dark-image-example/raw/main/light.png#gh-light-mode-only)
 
 
 
